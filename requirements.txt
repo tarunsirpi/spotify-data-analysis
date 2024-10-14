@@ -1,0 +1,4 @@
+pandas
+spotipy
+io
+boto3
