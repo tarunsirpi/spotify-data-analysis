@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -23,9 +22,9 @@ arr_id = '1mYsTxnqsietFxj1OgoGbG'
 arr = sp.artist(arr_id)
 
 album_ids = []
-albums_required = 100
+albums_required = 500
 
-for i in range(0,albums_required,50):
+for i in range(0, albums_required + 1 ,50):
     albums = sp.artist_albums(arr_id, limit = 50, offset=i)
     for item in albums['items']:
         album_id = item['id']

@@ -25,10 +25,15 @@ def lambda_handler(event, context):
     s3_client = boto3.client('s3')
     print(s3_client)
 
+    try:
+        bucket_response = s3_client.create_bucket(Bucket=bucket_name)
+    except:
+        pass
+
     album_ids = []
     albums_required = 500
     
-    for i in range(0,albums_required,50):
+    for i in range(0, albums_required + 1 ,50):
         albums = sp.artist_albums(arr_id, limit = 50, offset=i)
         for item in albums['items']:
             album_id = item['id']
@@ -114,4 +119,3 @@ def lambda_handler(event, context):
     track_audio_features_buffer = io.StringIO()
     track_audio_features_df.to_csv(track_audio_features_buffer, index=False)
     s3_client.put_object(Bucket=bucket_name, Key='data/track_audio_features_data.csv', Body=track_audio_features_buffer.getvalue())
-
