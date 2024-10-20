@@ -36,9 +36,27 @@ aws lambda publish-layer-version --layer-name my_spotify_layer --zip-file fileb:
 
 - In the execution role configuration, ```AmazonS3FullAccess```  policy is attached to it. 
 
+- Under Configurations, the Environment variables (*client_id* and *client_secret*)are created 
+
 
 ## Data analysis using PowerBI:
 
 - The data is then downloaded from the S3 bucket and imported into PowerBI.
 - The data is cleaned and the report is generated.
 
+
+## Files and directories:
+
+```spotify_get_data.py``` : python file for generating Spotify data.
+
+```get_data_lambda_function.py``` : AWS lambda function for generating Spotify data.
+
+```spotify-report-powerBI.pbix``` : PowerBI report created using the data generated.
+
+```data/ ```: contains the CSV files generated 
+
+```requirements.txt``` : python libraries required to get the data.
+
+
+
+Note : While using ```spotify_get_data.py``` to get the data, the *client ID* and *client secret* credentials are stored in a CSV file(spotify-keys.csv) and is hidden using the ```.gitignore``` file.
