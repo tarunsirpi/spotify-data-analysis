@@ -1,5 +1,7 @@
 # Spotify data analysis
 
+![Dashboard sample image](Dashboard_sample.png)
+
 ## Aim:
 
 This project aims to get data from the [Spotify API](https://developer.spotify.com/documentation/web-api) and do a data analysis on the acquired data. The inspiration behind this is to analyse the tracks of my favourite artist (A.R.Rahman) , which is done using the features provided by Spotify for each track.
